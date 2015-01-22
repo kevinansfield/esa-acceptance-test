@@ -19,3 +19,12 @@ test('visiting /login', function() {
     equal(currentPath(), 'login');
   });
 });
+
+test('redirects to index if already logged in', function () {
+  authenticateSession();
+  visit('/login');
+
+  andThen(function() {
+    equal(currentPath(), 'login');
+  });
+});
